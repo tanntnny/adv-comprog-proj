@@ -1,8 +1,8 @@
 public abstract class ParcelDecorator implements ParcelInterface {
     protected ParcelInterface decoratedParcel;
 
-    public ParcelDecorator(Parcel parcel) {
-        this.decoratedParcel = parcel;
+    public ParcelDecorator(ParcelInterface parcel) {
+        decoratedParcel = parcel;
     }
 
     @Override
@@ -29,37 +29,19 @@ public abstract class ParcelDecorator implements ParcelInterface {
     public double getPrice() {
         return decoratedParcel.getPrice();
     }
-}
 
-class ExpressDeliveryDecorator extends ParcelDecorator {
-    public ExpressDeliveryDecorator(Parcel parcel) {
-        super(parcel);
+    @Override
+    public String getServices() {
+        return decoratedParcel.getServices();
     }
 
     @Override
-    public double getPrice() {
-        return super.getPrice() + super.getWeight() * 10;
-    }
-}
-
-class ProtectionDecorator extends ParcelDecorator {
-    public ProtectionDecorator(Parcel parcel) {
-        super(parcel);
+    public String getSource() {
+        return decoratedParcel.getSource();
     }
 
     @Override
-    public double getPrice() {
-        return super.getPrice() + super.getVolume() * 0.05;
-    }
-}
-
-class WarrantyDeliveryDecorator extends ParcelDecorator {
-    public WarrantyDeliveryDecorator(Parcel parcel) {
-        super(parcel);
-    }
-
-    @Override
-    public double getPrice() {
-        return super.getPrice() + super.getWeight() * getVolume() * 0.3;
+    public String getDestination() {
+        return decoratedParcel.getDestination();
     }
 }

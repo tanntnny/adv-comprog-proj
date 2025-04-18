@@ -1,11 +1,3 @@
-interface ParcelInterface {
-    public void getInfo();
-    public String getId();
-    public double getPrice();
-    public double getWeight();
-    public double getVolume();
-}
-
 public class Parcel implements ParcelInterface {
     private String senderName, receiverName, source, destination, id;
     private double weight, height, width, length;
@@ -43,7 +35,7 @@ public class Parcel implements ParcelInterface {
     }
 
     public double getPrice() {
-        return weight * height * width * length;
+        return weight * height * width * length * 0.05;
     }
 
     public double getWeight() {
@@ -52,5 +44,17 @@ public class Parcel implements ParcelInterface {
 
     public double getVolume() {
         return width * length * height;
+    }
+
+    public String getServices() {
+        return "";
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public String getDestination() {
+        return destination;
     }
 }
