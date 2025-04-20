@@ -123,4 +123,12 @@ public class CountryDeliveryService {
     public ArrayList<DeliveryService> getStations() {
         return countryDeliveryServices;
     }
+
+    public void deliverAllParcels() {
+        System.out.println("===================================");
+        for (DeliveryService station: countryDeliveryServices) {
+            System.out.println(String.format("Station number: %s", station.getInfo()));
+            station.deliverAllParcels();
+        }
+    }
 }

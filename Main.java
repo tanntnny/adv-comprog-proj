@@ -26,6 +26,7 @@ public class Main {
             System.out.println("> (LS) List all the delivery stations.");
             System.out.println("> (LP) List all the parcels in the system.");
             System.out.println("> (LSH) List all the extra shipping costs.");
+            System.out.println("> (D) Deliver all parcels.");
             System.out.println("> (Q) End the program.");
             System.out.print("Your command: ");
 
@@ -51,6 +52,10 @@ public class Main {
 
             else if(in.equals("LSH")) {
                 countryDeliveryService.listShippingCosts();
+            }
+
+            else if (in.equals("D")) {
+                countryDeliveryService.deliverAllParcels();
             }
 
             else
